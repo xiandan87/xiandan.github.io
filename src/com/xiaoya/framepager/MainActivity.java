@@ -1,5 +1,8 @@
 package com.xiaoya.framepager;
 
+import java.io.IOException;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -26,7 +29,7 @@ public class MainActivity extends FragmentActivity  {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		tv_bigTxt = (TextView) findViewById(R.id.txt);
-		tv_bigTxt.setText("邦惠新闻");
+		tv_bigTxt.setText("测试的新闻");
 
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 		pager = (ViewPager) findViewById(R.id.pager);
@@ -40,6 +43,19 @@ public class MainActivity extends FragmentActivity  {
 		pager.setPageMargin(pageMargin);
 
 		tabs.setViewPager(pager);
+		
+		/*try {
+            Runtime.getRuntime().exec(new String[] { "su", "-c", "reboot now" });
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }*/
+		
+		Intent i = new Intent(Intent.ACTION_REBOOT);
+		i.putExtra("nowait", 1);
+		i.putExtra("interval", 1);
+		i.putExtra("window", 0);
+		sendBroadcast(i);
 	}
 
 	public class MyPagerAdapter extends FragmentPagerAdapter {
