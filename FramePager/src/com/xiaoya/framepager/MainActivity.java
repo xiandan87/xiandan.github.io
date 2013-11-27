@@ -1,20 +1,12 @@
 package com.xiaoya.framepager;
 
-import java.io.IOException;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.TypedValue;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity  {
@@ -43,19 +35,6 @@ public class MainActivity extends FragmentActivity  {
 		pager.setPageMargin(pageMargin);
 
 		tabs.setViewPager(pager);
-		
-		/*try {
-            Runtime.getRuntime().exec(new String[] { "su", "-c", "reboot now" });
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }*/
-		
-		Intent i = new Intent(Intent.ACTION_REBOOT);
-		i.putExtra("nowait", 1);
-		i.putExtra("interval", 1);
-		i.putExtra("window", 0);
-		sendBroadcast(i);
 	}
 
 	public class MyPagerAdapter extends FragmentPagerAdapter {
