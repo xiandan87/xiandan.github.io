@@ -35,8 +35,8 @@ public class VideoViewActivity extends Activity {
         File videoFile = new File("/mnt/sdcard/Wonders_of_Nature.mp4");
 
         // 先判断这个文件是否存在
-        if (videoFile.exists()) {
-            System.out.println("文件存在");
+//        if (videoFile.exists()) {
+//            System.out.println("文件存在");
 //            videoView.setVideoPath(videoFile.getAbsolutePath());
             videoView.setVideoPath("http://daily3gp.com/vids/family_guy_penis_car.3gp");
             System.out.println(videoFile.getAbsolutePath());
@@ -49,9 +49,9 @@ public class VideoViewActivity extends Activity {
             videoView.requestFocus();
             // 开始播放
             videoView.start();
-        } else {
-            Toast.makeText(this, "文件不存在", Toast.LENGTH_LONG).show();
-        }
+//        } else {
+//            Toast.makeText(this, "文件不存在", Toast.LENGTH_LONG).show();
+//        }
 
         btnShow.setOnClickListener(new View.OnClickListener() {
 
