@@ -28,5 +28,12 @@
         	android:layout_marginTop="27dip"
         	android:text="textureview_demo" 
         	/>
+    
+    <Button android:id="@+id/demo_5"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="27dip"
+        	android:text="textureview_list_demo" 
+        	/>
 
 </LinearLayout>
