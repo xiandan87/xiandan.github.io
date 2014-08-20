@@ -28,7 +28,8 @@ public class VideoViewDemo extends Activity {
      * TODO: Set the path variable to a streaming video URL or a local media
      * file path.
      */
-    private String path = "http://daily3gp.com/vids/family_guy_penis_car.3gp";
+//    private String path = "http://daily3gp.com/vids/family_guy_penis_car.3gp";
+    private String path="/mnt/sdcard/test.mp4";
     private VideoView mVideoView;
 
     @Override

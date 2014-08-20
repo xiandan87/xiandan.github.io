@@ -12,6 +12,7 @@ public class MenuActivity extends Activity implements OnClickListener{
     private Button demo1;
     private Button demo2;
     private Button demo3;
+    private Button demo4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -25,6 +26,8 @@ public class MenuActivity extends Activity implements OnClickListener{
         demo2.setOnClickListener(this);
         demo3=(Button) this.findViewById(R.id.demo_3);
         demo3.setOnClickListener(this);
+        demo4=(Button) this.findViewById(R.id.demo_4);
+        demo4.setOnClickListener(this);
         
     }
     @Override
@@ -38,6 +41,10 @@ public class MenuActivity extends Activity implements OnClickListener{
             break;
         case R.id.demo_3:
             gotoDemo(VideoViewActivity.class);
+            break;
+        case R.id.demo_4:
+            gotoDemo(TextureViewActivity.class);
+            break;
         }
         
     }

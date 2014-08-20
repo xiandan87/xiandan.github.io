@@ -4,18 +4,18 @@ import java.io.File;
 
 import android.app.Activity;
 import android.graphics.PixelFormat;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 public class VideoViewActivity extends Activity {
 
     private VideoView videoView;
+
     private Button btnHide, btnShow;
+
     MediaController mediaController;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -32,13 +32,13 @@ public class VideoViewActivity extends Activity {
 
         mediaController = new MediaController(this);
 
-        File videoFile = new File("/mnt/sdcard/Wonders_of_Nature.mp4");
+        File videoFile = new File("/mnt/sdcard/test.mp4");
 
         // 先判断这个文件是否存在
-//        if (videoFile.exists()) {
-//            System.out.println("文件存在");
-//            videoView.setVideoPath(videoFile.getAbsolutePath());
-            videoView.setVideoPath("http://daily3gp.com/vids/family_guy_penis_car.3gp");
+        if (videoFile.exists()) {
+            System.out.println("文件存在");
+            videoView.setVideoPath(videoFile.getAbsolutePath());
+            // videoView.setVideoPath("http://daily3gp.com/vids/family_guy_penis_car.3gp");
             System.out.println(videoFile.getAbsolutePath());
             // 设置VideView与MediaController建立关联
             videoView.setMediaController(mediaController);
@@ -49,32 +49,33 @@ public class VideoViewActivity extends Activity {
             videoView.requestFocus();
             // 开始播放
             videoView.start();
-//        } else {
-//            Toast.makeText(this, "文件不存在", Toast.LENGTH_LONG).show();
-//        }
+            // } else {
+            // Toast.makeText(this, "文件不存在", Toast.LENGTH_LONG).show();
+            // }
 
-        btnShow.setOnClickListener(new View.OnClickListener() {
+            btnShow.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                if (mediaController != null) {
-                    // 使用0的话就一直显示直到调用hide()
-                    mediaController.show(0);
+                @Override
+                public void onClick(View v) {
+                    if (mediaController != null) {
+                        // 使用0的话就一直显示直到调用hide()
+                        mediaController.show(0);
+                    }
+
                 }
+            });
 
-            }
-        });
+            btnHide.setOnClickListener(new View.OnClickListener() {
 
-        btnHide.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mediaController != null) {
 
-            @Override
-            public void onClick(View v) {
-                if (mediaController != null) {
-                    
-                    mediaController.hide();
+                        mediaController.hide();
+                    }
+
                 }
-
-            }
-        });
+            });
+        }
     }
 }

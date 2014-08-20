@@ -94,6 +94,15 @@ public class MainActivity extends Activity  implements OnClickListener,OnPrepare
 		}
 
 	}
+	
+	@Override
+	protected void onDestroy() {
+	    super.onDestroy();
+	    if (mediaPlayer!=null&&mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+        }
+	}
+	
 	@Override
 	protected void onPause() {	
 		//先判断是否正在播放
@@ -112,8 +121,8 @@ public class MainActivity extends Activity  implements OnClickListener,OnPrepare
 			mediaPlayer
 			.setAudioStreamType(AudioManager.STREAM_MUSIC);
 			//设置需要播放的视频
-//			mediaPlayer.setDataSource("/mnt/sdcard/Wonders_of_Nature.mp4");
-			mediaPlayer.setDataSource("http://daily3gp.com/vids/family_guy_penis_car.3gp");
+			mediaPlayer.setDataSource("/mnt/sdcard/test_baofeng.mp4");
+//			mediaPlayer.setDataSource("http://daily3gp.com/vids/family_guy_penis_car.3gp");
 			//把视频画面输出到SurfaceView
 			mediaPlayer.setDisplay(surfaceView.getHolder());
 			mediaPlayer.setOnPreparedListener(this);
